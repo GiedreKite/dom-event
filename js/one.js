@@ -17,27 +17,33 @@ let RytasTotal = 0;
 function neptunasOne() {
     NeptunasTotal++;
     resultDOM1.textContent = NeptunasTotal;
+    addHistory(1,"Neptunas")
 }
 function neptunasTwo() {
     NeptunasTotal += 2;
     resultDOM1.textContent = NeptunasTotal;
+    addHistory(2,"Neptunas")
 }
 function neptunasThree() {
     NeptunasTotal += 3;
     resultDOM1.textContent = NeptunasTotal;
+    addHistory(3,"Neptunas")
 }
 
 function rytasOne() {
     RytasTotal++;
     resultDOM2.textContent = RytasTotal;
+    addHistory(1,"Lietuvos rytas")
 }
 function rytasTwo() {
     RytasTotal += 2;
     resultDOM2.textContent = RytasTotal;
+    addHistory(2,"Lietuvos rytas")
 }
 function rytasThree() {
     RytasTotal += 3;
     resultDOM2.textContent = RytasTotal;
+    addHistory(3,"Lietuvos rytas")
 }
 
 Neptunas1DOM.addEventListener('click', neptunasOne);
@@ -48,8 +54,11 @@ Rytas1DOM.addEventListener('click', rytasOne);
 Rytas2DOM.addEventListener('click', rytasTwo);
 Rytas3DOM.addEventListener('click', rytasThree);
 
-const historyDOM = document.querySelector('p');
-function history() {
-  
-    console.log(NeptunasTotal)
-};
+let scoreHistory = '';
+function addHistory(points,team) {
+ scoreHistory = '<p> ' + team + " " + points + '</p>' + scoreHistory ;
+  historyDOM.innerHTML = scoreHistory;
+}
+
+let historyDOM = document.querySelector('.istorija');
+
