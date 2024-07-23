@@ -45,8 +45,24 @@ border: 0.2rem solid red;
 .rezultatas {
     font-size: 80px;
 }
+@media (max-width: 460px) {
+    .rezultatas {
+        font-size: 40px;
+        margin-left: 0;
+    }
+
+    img {
+        display: row;
+    }
+}
 h2 {
     font-size: 40px;
+}
+@media (max-width: 460px) {
+    h2 {
+        font-size: 40px;
+        margin-left: 0;
+    }
 }
 
 section {

@@ -9,6 +9,13 @@ const resultsDOM = document.querySelectorAll('h3');
 const resultDOM1 = resultsDOM[0];
 const resultDOM2 = resultsDOM[1];
 
+const localData = localStorage.getItem('tasks');
+let scoreData = [];
+
+if (scoreData !== null) {
+    scoreData= JSON.parse(localData);
+}
+//localStorage.setItem('tasks', JSON.stringify(scoreData));
 
 
 let NeptunasTotal = 0;
@@ -46,7 +53,11 @@ function rytasThree() {
     addHistory(3,"Lietuvos rytas")
 }
 
-Neptunas1DOM.addEventListener('click', neptunasOne);
+Neptunas1DOM.addEventListener('click', () => {
+    neptunasOne();
+    localStorage.setItem('tasks', JSON.stringify(scoreData));
+});
+
 Neptunas2DOM.addEventListener('click', neptunasTwo);
 Neptunas3DOM.addEventListener('click', neptunasThree);
 
@@ -60,5 +71,21 @@ function addHistory(points,team) {
   historyDOM.innerHTML = scoreHistory;
 }
 
+
+
+
 let historyDOM = document.querySelector('.istorija');
 
+function formatTime(timeInMs) {
+
+    const date = new Date(timeInMs);
+    const y =date.getFullYear();
+    const m = (date.getMonth() < 10 ? '0':'') +(date.getMonth()+1);
+    const d = (date.getDate() < 10 ? '0':'') +(date.getDate());
+    const h = (date.getHours() < 10 ? '0':'') + date.getHours();
+    const mn = (date.getMinutes() < 10 ? '0':'') + date.getMinutes();
+    const s = (date.getSeconds() < 10 ? '0':'') + date.getSeconds();
+    const mmm =(date.getMilliseconds() < 10 ? '0':'') +date.getMilliseconds
+
+        return `${y}-${m}-${d} ${h}:${mn}:${s}:${mmm}` ;
+    }
